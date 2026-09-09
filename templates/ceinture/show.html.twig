@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ceinture{% endblock %}
+
+{% block body %}
+    <h1>Ceinture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ceinture.id }}</td>
+            </tr>
+            <tr>
+                <th>CouleurC</th>
+                <td>{{ ceinture.couleurC }}</td>
+            </tr>
+            <tr>
+                <th>AgeC</th>
+                <td>{{ ceinture.ageC }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ceinture_index') }}">back to list</a>
+
+    <a href="{{ path('app_ceinture_edit', {'id': ceinture.id}) }}">edit</a>
+
+    {{ include('ceinture/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ceinture{% endblock %}
+
+{% block body %}
+    <h1>Edit Ceinture</h1>
+
+    {{ include('ceinture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ceinture_index') }}">back to list</a>
+
+    {{ include('ceinture/_delete_form.html.twig') }}
+{% endblock %}

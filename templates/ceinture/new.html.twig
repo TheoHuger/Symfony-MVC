@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ceinture{% endblock %}
+
+{% block body %}
+    <h1>Create new Ceinture</h1>
+
+    {{ include('ceinture/_form.html.twig') }}
+
+    <a href="{{ path('app_ceinture_index') }}">back to list</a>
+{% endblock %}

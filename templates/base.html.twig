@@ -11,7 +11,9 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
-
+        <div class="position-fixed bottom-0 start-0 m-4">
+            <a href="{{ path('app_accueil') }}" class="btn btn-primary btn-lg">retour</a>
+        </div>
         {% set frankenphp_hot_reload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
         {% if frankenphp_hot_reload %}
         <meta name="frankenphp-hot-reload:url" content="{{ frankenphp_hot_reload }}">

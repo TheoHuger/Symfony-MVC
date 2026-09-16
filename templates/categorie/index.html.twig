@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>IdCat</th>
                 <th>NomCat</th>
                 <th>AgeCat</th>
                 <th>actions</th>
@@ -19,7 +18,6 @@
         {% for categorie in categories %}
             <tr>
                 <td>{{ categorie.id }}</td>
-                <td>{{ categorie.idCat }}</td>
                 <td>{{ categorie.nomCat }}</td>
                 <td>{{ categorie.ageCat }}</td>
                 <td>
@@ -29,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

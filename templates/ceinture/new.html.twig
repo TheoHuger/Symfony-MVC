@@ -3,9 +3,9 @@
 {% block title %}New Ceinture{% endblock %}
 
 {% block body %}
-    <h1>Create new Ceinture</h1>
+    <h1 class="text-center">Create new Ceinture</h1>
 
     {{ include('ceinture/_form.html.twig') }}
 
-    <a href="{{ path('app_ceinture_index') }}">back to list</a>
+    <a href="{{ path('app_ceinture_index') }}" class="btn btn-danger btn-min">back to list</a>
 {% endblock %}

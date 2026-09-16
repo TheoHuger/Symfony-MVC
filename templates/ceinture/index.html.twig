@@ -3,7 +3,7 @@
 {% block title %}Ceinture index{% endblock %}
 
 {% block body %}
-    <h1>Ceinture index</h1>
+    <h1 class="text-center">Ceinture index</h1>
 
     <table class="table">
         <thead>
@@ -22,7 +22,7 @@
                 <td>{{ ceinture.ageC }}</td>
                 <td>
                     <a href="{{ path('app_ceinture_show', {'id': ceinture.id}) }}">show</a>
-                    <a href="{{ path('app_ceinture_edit', {'id': ceinture.id}) }}">edit</a>
+                    <a href="{{ path('app_ceinture_edit', {'id': ceinture.id}) }}"><i class="bi bi-wrench"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ceinture_new') }}">Create new</a>
+    <a href="{{ path('app_ceinture_new') }}" class="btn btn-success btn-min"><i class="bi bi-plus-circle"></i> Create new</a>
 {% endblock %}

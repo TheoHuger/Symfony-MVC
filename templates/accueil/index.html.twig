@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Activité{% endblock %}
 
 {% block body %}
 <style>
@@ -13,7 +13,7 @@
 
     <div class="d-flex justify-content-center gap-3 mt-4">
         <a href="{{ path('app_ceinture_index') }}" class="btn btn-primary btn-lg">Ceinture</a>
-{#      <a href="{{ path('app_adherent_index') }}" class="btn btn-primary btn-lg">adherent</a>#}
+        <a href="{{ path('app_adherent_index') }}" class="btn btn-success btn-lg">Adherent</a>
         <a href="{{ path('app_categorie_index') }}" class="btn btn-danger btn-lg">Categorie</a>
     </div>
 </div>

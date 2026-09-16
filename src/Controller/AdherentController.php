@@ -18,7 +18,7 @@ final class AdherentController extends AbstractController
     public function index(AdherentRepository $adherentRepository): Response
     {
         return $this->render('adherent/index.html.twig', [
-            'adherents' => $adherentRepository->findAll(),
+            'adherents' => $adherentRepository->findBy([], ['nomJ' => 'DESC', 'prenom' => 'DESC'])
         ]);
     }
 

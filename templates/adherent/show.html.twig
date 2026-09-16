@@ -3,7 +3,7 @@
 {% block title %}Adherent{% endblock %}
 
 {% block body %}
-    <h1>Adherent</h1>
+    <h1 class="text-center">Adherent</h1>
 
     <table class="table">
         <tbody>
@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>DateNaissJ</th>
-                <td>{{ adherent.dateNaissJ ? adherent.dateNaissJ|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ adherent.dateNaissJ ? adherent.dateNaissJ|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>

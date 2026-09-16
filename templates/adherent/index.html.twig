@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Adherent index{% endblock %}
+{% block title %}Adherent{% endblock %}
 
 {% block body %}
-    <h1>Adherent index</h1>
+    <h1 class="text-center">Adherent</h1>
 
     <table class="table">
         <thead>
@@ -12,7 +12,8 @@
                 <th>NomJ</th>
                 <th>Prenom</th>
                 <th>DateNaissJ</th>
-                <th>actions</th>
+                <th>Categorie</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +22,8 @@
                 <td>{{ adherent.id }}</td>
                 <td>{{ adherent.nomJ }}</td>
                 <td>{{ adherent.prenom }}</td>
-                <td>{{ adherent.dateNaissJ ? adherent.dateNaissJ|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ adherent.dateNaissJ ? adherent.dateNaissJ|date('d-m-Y') : '' }}</td>
+                <td>{{adherent.categorie.nomCat}}</td>
                 <td>
                     <a href="{{ path('app_adherent_show', {'id': adherent.id}) }}">show</a>
                     <a href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">edit</a>
@@ -29,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -21,16 +21,6 @@ class Ceinture
     #[ORM\Column]
     private ?int $ageC = null;
 
-    /**
-     * @var Collection<int, Obtenir>
-     */
-    #[ORM\OneToMany(targetEntity: Obtenir::class, mappedBy: 'idC')]
-    private Collection $obtenirs;
-
-    public function __construct()
-    {
-        $this->obtenirs = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -61,33 +51,5 @@ class Ceinture
         return $this;
     }
 
-    /**
-     * @return Collection<int, Obtenir>
-     */
-    public function getObtenirs(): Collection
-    {
-        return $this->obtenirs;
-    }
 
-    public function addObtenir(Obtenir $obtenir): static
-    {
-        if (!$this->obtenirs->contains($obtenir)) {
-            $this->obtenirs->add($obtenir);
-            $obtenir->setIdC($this);
-        }
-
-        return $this;
-    }
-
-    public function removeObtenir(Obtenir $obtenir): static
-    {
-        if ($this->obtenirs->removeElement($obtenir)) {
-            // set the owning side to null (unless already changed)
-            if ($obtenir->getIdC() === $this) {
-                $obtenir->setIdC(null);
-            }
-        }
-
-        return $this;
-    }
 }

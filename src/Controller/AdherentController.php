@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Adherent;
 use App\Form\AdherentType;
 use App\Repository\AdherentRepository;
+use App\Repository\CeintureRepository;
+use App\Entity\Obtenir;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,14 +25,29 @@ final class AdherentController extends AbstractController
     }
 
     #[Route('/new', name: 'app_adherent_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager,CeintureRepository $ceintureRepository): Response
     {
+        $ceintureBlanche = $ceintureRepository->findOneBy(['couleurC' => 'blanc']);
         $adherent = new Adherent();
+        $obtenir = new Obtenir();
+        $obtenir->setIdC($ceintureBlanche);
+        $obtenir->setDateObtention(new \DateTime());        
+        $obtenir->setAdherent($adherent);        
+        $adherent->addObtenir($obtenir);
+
+
         $form = $this->createForm(AdherentType::class, $adherent);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+        
+
+
+
             $entityManager->persist($adherent);
+            $entityManager->persist($obtenir);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_adherent_index', [], Response::HTTP_SEE_OTHER);

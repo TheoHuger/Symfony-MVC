@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ObtenirRepository::class)]
+#[ORM\UniqueConstraint(name: 'unique_ceinture_adherent', columns: ['id_c_id', 'adherent_id'])]
 class Obtenir
 {
     #[ORM\Id]
@@ -21,7 +22,7 @@ class Obtenir
     #[ORM\JoinColumn(nullable: false)]
     private ?Ceinture $idC = null;
 
-    #[ORM\ManyToOne(inversedBy: 'obtenirs')]
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Adherent $adherent = null;
 

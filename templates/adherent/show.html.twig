@@ -30,5 +30,27 @@
 
     <a href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">edit</a>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ceinture</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for obtenir in adherent.obtenirs %}
+            <tr>
+                <td>{{ obtenir.idC.CouleurC }}</td>
+                <td>{{ obtenir.dateObtention|date('d/m/Y') }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     {{ include('adherent/_delete_form.html.twig') }}
 {% endblock %}

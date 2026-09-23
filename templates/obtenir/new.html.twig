@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Obtenir{% endblock %}
+
+{% block body %}
+    <h1>Create new Obtenir</h1>
+
+    {{ include('obtenir/_form.html.twig') }}
+
+    <a href="{{ path('app_obtenir_index') }}">back to list</a>
+{% endblock %}

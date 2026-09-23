@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Obtenir{% endblock %}
+
+{% block body %}
+    <h1>Obtenir</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ obtenir.id }}</td>
+            </tr>
+            <tr>
+                <th>DateObtention</th>
+                <td>{{ obtenir.dateObtention ? obtenir.dateObtention|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_obtenir_index') }}">back to list</a>
+
+    <a href="{{ path('app_obtenir_edit', {'id': obtenir.id}) }}">edit</a>
+
+    {{ include('obtenir/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Obtenir{% endblock %}
+
+{% block body %}
+    <h1>Edit Obtenir</h1>
+
+    {{ include('obtenir/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_obtenir_index') }}">back to list</a>
+
+    {{ include('obtenir/_delete_form.html.twig') }}
+{% endblock %}
